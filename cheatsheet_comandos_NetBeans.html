@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheatsheet Java NetBeans</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d3748;
+            --accent-color: #e53e3e;
+            --light-color: #f7fafc;
+            --dark-color: #2d3748;
+            --table-bg: #2d3748;
+            --table-header: #1a365d;
+            --table-row-even: #4a5568;
+            --table-row-odd: #2d3748;
+            --success-color: #38a169;
+            --warning-color: #dd6b20;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--light-color);
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2b6cb0);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: var(--secondary-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        h2 {
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #4a5568;
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+
+        h2 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        th {
+            background-color: var(--table-header);
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #4a5568;
+            color: var(--light-color);
+        }
+
+        tr:nth-child(odd) {
+            background-color: var(--table-row-odd);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--table-row-even);
+        }
+
+        .code {
+            font-family: 'Courier New', monospace;
+            background-color: #1a202c;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #e2e8f0;
+            font-weight: 500;
+            border: 1px solid #4a5568;
+        }
+
+        .shortcut {
+            color: #fbd38d;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block {
+            background-color: #1a202c;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+            border: 1px solid #4a5568;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .code-comment {
+            color: #718096;
+        }
+
+        .code-keyword {
+            color: #63b3ed;
+            font-weight: bold;
+        }
+
+        .code-string {
+            color: #68d391;
+        }
+
+        .code-function {
+            color: #fbb6ce;
+        }
+
+        .code-variable {
+            color: #fbd38d;
+        }
+
+        .note {
+            background-color: #2d3748;
+            border-left: 4px solid var(--warning-color);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .tip {
+            background-color: #2d3748;
+            border-left: 4px solid var(--success-color);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background: #c53030;
+        }
+
+        .btn-download {
+            background: var(--success-color);
+        }
+
+        .btn-download:hover {
+            background: #2f855a;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        ol, ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 12px 10px;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Cheatsheet Java NetBeans</h1>
+            <p class="subtitle">Atajos y consejos para estudiantes de programación Java</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>📝 Atajos para Autocompletar y Generar Código</h2>
+            <p>Escribe estos comandos y presiona TAB para autocompletar:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Comando</th>
+                        <th>Función</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="code">sout</span></td>
+                        <td>Autocompleta <span class="code">System.out.println("...")</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">soutv</span></td>
+                        <td>Autocompleta <span class="code">System.out.println("variable = " + variable)</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">if</span></td>
+                        <td>Genera la estructura <span class="code">if (true) { }</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ifelse</span></td>
+                        <td>Genera <span class="code">if (true) { } else { }</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">sw</span></td>
+                        <td>Genera la estructura switch</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">fori</span></td>
+                        <td>Genera un bucle for con contador int i</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">fore</span></td>
+                        <td>Genera un bucle for-each para iterar un Array o colección</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">do</span></td>
+                        <td>Genera la estructura <span class="code">do { } while (true);</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">whilexp</span></td>
+                        <td>Genera la estructura <span class="code">while (true) { }</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">trycatch</span></td>
+                        <td>Genera un bloque try-catch</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">ca</span></td>
+                        <td>Genera un bloque catch</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">fy</span></td>
+                        <td>Genera un bloque finally</td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">psf</span></td>
+                        <td>Autocompleta <span class="code">public static final</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">psfi</span></td>
+                        <td>Autocompleta <span class="code">public static final int</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="code">psfs</span></td>
+                        <td>Autocompleta <span class="code">public static final String</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>⌨️ Atajos de Edición y Formato</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Atajo</th>
+                        <th>Función</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut">Shift + Alt + F</span></td>
+                        <td>Formatea automáticamente el código seleccionado</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + E</span></td>
+                        <td>Elimina la línea actual</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + Shift + C</span></td>
+                        <td>Comenta o descomenta la línea seleccionada</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + Shift + Flecha Abajo</span></td>
+                        <td>Duplica la línea actual</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + Z</span></td>
+                        <td>Deshace la última acción</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + SPACE</span></td>
+                        <td>Muestra sugerencias de autocompletado de código</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Alt + Enter</span></td>
+                        <td>Muestra sugerencias y soluciones rápidas para el código subrayado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🔧 Otros Comandos Útiles</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Atajo</th>
+                        <th>Función</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + N</span></td>
+                        <td>Crea un nuevo archivo</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + Shift + S</span></td>
+                        <td>Guarda todos los archivos</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + W</span></td>
+                        <td>Cierra la pestaña actual</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Ctrl + Click</span></td>
+                        <td>Navega al origen de una función o variable</td>
+                    </tr>
+                    <tr>
+                        <td><span class="shortcut">Alt + Insertar</span></td>
+                        <td>Menú para insertar código, como constructores, getters y setters</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>⚙️ Plantilla Personalizada para Archivos Java</h2>
+            <p>Para modificar la plantilla predeterminada de archivos Java en NetBeans:</p>
+            <ol>
+                <li>Abre NetBeans</li>
+                <li>Ve a <strong>Tools (Herramientas)</strong> → <strong>Templates (Plantillas)</strong></li>
+                <li>Busca la carpeta <strong>Java</strong></li>
+                <li>Selecciona <strong>Java Main Class</strong> y haz clic en <strong>Open In Editor</strong></li>
+            </ol>
+            
+            <div class="tip">
+                <strong>Consejo:</strong> Personalizar la plantilla te ahorra tiempo al crear nuevos archivos, ya que incluirá automáticamente imports comunes, comentarios Javadoc y configuraciones específicas.
+            </div>
+            
+            <h3>Ejemplo de plantilla personalizada:</h3>
+            <div class="code-block">
+                <span class="code-comment">// Imports y bibliotecas</span><br>
+                <span class="code-keyword">import</span> java.util.*;<br>
+                <span class="code-keyword">import</span> java.awt.*;<br>
+                <span class="code-keyword">import</span> java.awt.event.*;<br>
+                <span class="code-keyword">import</span> java.io.*;<br><br>
+                
+                <span class="code-comment">/**<br>
+                 * @author ${user}<br>
+                 * @version 1.0<br>
+                 */</span><br>
+                <span class="code-keyword">public class</span> <span class="code-variable">${name}</span> {<br>
+                &nbsp;&nbsp;<span class="code-comment">// Inicio del método main</span><br>
+                &nbsp;&nbsp;<span class="code-keyword">public static void</span> <span class="code-function">main</span>(String[] args) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Forzar codificación UTF-8 en la consola</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;System.setOut(<span class="code-keyword">new</span> java.io.PrintStream(System.out, <span class="code-keyword">true</span>, <span class="code-string">"UTF-8"</span>));<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Tu código aquí</span><br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔠 Forzar Codificación UTF-8 en la Consola</h2>
+            <p>Para habilitar correctamente los caracteres especiales (tildes, ñ, etc.) en la consola de NetBeans:</p>
+            <div class="code-block">
+                <span class="code-comment">// Forzar la codificación UTF-8 en la consola</span><br>
+                System.setOut(<span class="code-keyword">new</span> java.io.PrintStream(System.out, <span class="code-keyword">true</span>, <span class="code-string">"UTF-8"</span>));
+            </div>
+            
+            <div class="note">
+                <strong>Nota:</strong> Esta línea debe colocarse al inicio del método main para asegurar que toda la salida a consola use UTF-8.
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn" onclick="window.print()">🖨️ Imprimir Cheatsheet</button>
+            <button class="btn btn-download" onclick="downloadAsPDF()">📥 Descargar como PDF</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>Cheatsheet Java NetBeans para Estudiantes</p>
+            <p>Recuerda practicar regularmente para memorizar estos atajos y mejorar tu productividad</p>
+        </div>
+    </footer>
+
+    <script>
+        function downloadAsPDF() {
+            alert("Para guardar como PDF, usa la función de impresión de tu navegador y selecciona 'Guardar como PDF' en las opciones de impresión.");
+        }
+    </script>
+</body>
+</html>
